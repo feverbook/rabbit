@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.0.min.js"></script>
+    <title>SiNoAlice 汇总</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        var title = document.createElement("DIV");//主线剧情
+        document.body.appendChild(title);
+        title.innerHTML = "死亡爱丽丝";
+        title.style = 'display:block; width: 15%;position:relative;left:45%;color:red';
+
+
+
+        function lesson(n, text) {
+            document.body.appendChild(n);
+            n.style = 'display: inline-block; width: 15%;text-align:center;margin:10px;padding:5px;border-style:solid;';//基础布局
+            n.innerHTML = text;
+            return n;
+        }   //增加总栏目
+        /*
+                var mainplot = document.createElement("DIV");//主线剧情
+                document.body.appendChild(mainplot);
+                mainplot.style = 'border-style:solid;';
+                mainplot.innerHTML = "主线剧情";
+        
+                var actionstory = document.createElement("DIV");//活动剧情
+                document.body.appendChild(actionstory);
+                actionstory.style = 'border-style:solid;';
+                actionstory.innerHTML = "活动剧情";
+            
+                var task = document.createElement("DIV");//人物条件
+                document.body.appendChild(task);
+                task.style = 'border-style:solid;';
+                task.innerHTML = "任务条件";
+                  */
+        var mainplot = document.createElement("DIV");
+        lesson(mainplot, "主线剧情");
+
+        var actionstory = document.createElement("DIV");
+        lesson(actionstory, "活动剧情");
+
+        var task = document.createElement("DIV");
+        lesson(task, "任务条件");
+
+        var commonproblem = document.createElement("DIV");
+        lesson(commonproblem, "常见问题");
+
+        var strategy = document.createElement("DIV");
+        lesson(strategy, "攻略汇总");
+
+        function lesson01 (st,st1){
+        }
+lesson01(st,st1);
+
+   /*    var st = document.createElement("UL");
+        document.body.appendChild(st);
+        st.style = 'border-style:solid;position:relative;top:100px;';
+        var st1 =document.createElement("LI");
+        st.appendChild(st1);
+        st1.style = 'border-style:solid;position:relative;top:100px;';
+      */  
+    </script>
+
+</body>
+
+</html>

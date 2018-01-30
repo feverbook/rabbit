@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue app 02</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="jquery-3.2.0.min.js"></script>
+
+</head>
+
+<body>
+    <span>Message:{{兔兔}}</span>
+    <span v-once>这个Message将不会改变: {{ 小兔兔 }}</span>
+
+
+
+
+
+
+    <script>
+        var da = { a: 2 };//da对应data的da
+        var vm = new Vue({
+            el: '#example',
+            data: da,//数据对象
+            created: function () {
+                console.log('a is: ' + this.a)// `this` 指向 vm 实例
+            }
+        })//vm,ViewModel 的简称, Vue 实例的常用表达
+
+        // $watch 是一个实例方法
+        vm.$watch('a', function (newValue, oldValue) {
+            // 这个回调将在vm.a改变后调用
+        })
+
+
+
+    </script>
+</body>
+
+</html>

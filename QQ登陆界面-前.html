@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> 迷你项目1-登录前 ipone8plus(414*736)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script src="jquery-3.2.0.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(32, 147, 233);
+            position: relative;
+            display: inline-block;
+            height: 736px;
+            width: 414px;
+            margin: 0;
+            overflow: hidden;
+            z-index: -2;
+            text-align: center;
+        }
+
+
+        #deepblue {
+            background-color: rgb(52, 72, 161);
+            width: 414px;
+            height: 414px;
+            transform: rotate(60deg);
+            transform-origin: center;
+            position: absolute;
+            top: 80%;
+            /*往下移即可*/
+            left: 40%;
+            z-index: -1;
+        }
+
+        #white {
+            background-color: rgb(255, 255, 255);
+            transform: rotate(0deg);
+            /*变回平*/
+            transform-origin: center;
+            width: 736px;
+            height: 736px;
+            position: absolute;
+            top: 22%;/*变回平*/
+            left: -150px;
+            z-index: 0;
+        }
+
+        #rem {
+            clip: inherit;
+            width: 146px;
+            height: 146px;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: 12%;
+            border: 5px solid rgba(255, 255, 255, 0.4);
+            border-radius: 146px;
+            opacity: 0.7;
+            box-shadow: 0px 0px 15px rgba(162, 177, 216, 0.5);
+            z-index: 1;
+        }
+
+        #rem:hover {
+            opacity: 1.0;
+            z-index: 1;
+        }
+
+
+
+        #one {
+            float: left;
+            position: absolute;
+            top: 95%;
+            left: 5%;
+            z-index: 3;
+            color: rgb(3, 137, 251);
+            font-size: 75%;
+        }
+
+        #two {
+            float: right;
+            position: absolute;
+            top: 95%;
+            right: 5%;
+            z-index: 3;
+            color: rgb(3, 137, 251);
+            font-size: 75%;
+
+
+        }
+
+        .button {
+            background-color: rgb(3, 137, 251);
+            width: 200px;
+            height: 40px;
+            border-radius: 2px;
+            margin: 0px;
+            color: rgb(255, 255, 255);
+            position: absolute;
+            left: 25%;
+            top: 74%;
+            vertical-align: middle;
+            line-height: 40px;
+
+
+        }
+
+        div.reading {
+            width: 190px;
+            height: 40px;
+            position: absolute;
+            left: 30%;
+            top: 80%;
+            font-size: 65%;
+            text-align: left;
+
+        }
+
+        #allow {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -10%;
+
+        }
+
+
+        span.keypoint {
+            color: rgb(3, 137, 251);
+        }
+
+        #user {
+            width: 200px;
+            height: 39px;
+            position: absolute;
+            left: 25%;
+            top: 40%;
+            /*上移*/
+            border-bottom: solid rgba(204, 204, 204, 0.7);
+            border-width: 0px 0px 1px 0px;
+
+        }
+
+        #password {
+            width: 200px;
+            height: 39px;
+            position: absolute;
+            left: 25%;
+            top: 65%;
+            border-bottom: solid rgba(204, 204, 204, 0);
+            /*增加透明度*/
+            border-width: 0px;
+        }
+
+        #close {
+            width: 12px;
+            height: 12px;
+            border: solid rgb(204, 204, 204);
+            border-width: 3px 3px 0px 0px;
+            border-radius: 1px;
+            transform: rotate(-45deg);
+            /*翻面*/
+            transform-origin: center;
+            position: absolute;
+            top: 40%;
+            /*上移*/
+            left: 78%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="deepblue"></div>
+
+    <div id="white"></div>
+
+    <img id="rem" src="../img/QQ图片20180116215459.jpg" />
+
+    <input id="user" type="text">
+    <input id="password" type="password">
+    <div id="close"></div>
+
+    <p class="button">登 录</p>
+    <div class="reading">
+        <img id="allow" src="../img/蓝对勾.png" /> 接受
+        <span class='keypoint'>服务条款</span>并同意同步该QQ号的账号、好友等信息。</div>
+
+
+    <div id='one' class='keypoint'>新用户注册</div>
+
+    <div id='two' class='keypoint'>无法登录？</div>
+
+
+
+
+
+
+    <script>
+        var rem = document.getElementById("rem");
+        var close = document.getElementById("close");
+        var white = document.getElementById("white");
+        var deepblue = document.getElementById("deepblue");
+        var user = document.getElementById("user");
+
+        close.addEventListener("click", login,true);
+        user.addEventListener("click", login,true);
+
+        function login() {
+            close.style.transform = "rotate(-45deg)";
+            close.style.top = "40%";
+
+            white.style.transform = "rotate(20deg)";
+            white.style.top = "26%";
+
+            deepblue.style.rotate = "0deg";
+            deepblue.style.top = "27%";
+        };
+
+      
+    </script>
+
+</body>
+
+</html>

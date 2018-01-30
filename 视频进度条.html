@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>movie</title>
+        <style type="text/css">
+            .box {
+                width: 160px;
+                height: 100px;
+                background-color: #CCC;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .bar {
+                background-color: #000;
+                box-sizing: border-box;
+                width: 100%;
+                height: 10px;
+                padding: 4px 6px;
+            }
+
+            .bar div {
+                background: #FFF;
+                height: 2px;
+                width: 0;
+            }
+
+            .movie {
+                width: 100%;
+                height: 90px;
+                background-image: url('./images/m_1.jpg')
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box" class="box">
+            <div class="bar">
+                <div id="bar"></div>
+            </div>
+            <div id="movie" class="movie">
+
+            </div>
+        </div>
+        <script type="text/javascript">
+            var frameInfo = {
+                width: 160,
+                height: 90,
+                line: 10,
+                step: 0.1
+            };
+
+            var barLength = 148;
+
+            function getFramePosition(i) {
+                var currentIndex = i % frameInfo.line;
+                var x = currentIndex * frameInfo.width;
+                var y = Math.floor(i / 10) * frameInfo.height;
+                return x + 'px ' + y + 'px'
+            }
+
+            function getElementLeft(elem) {
+                return elem.getBoundingClientRect().left
+            }
+
+            var box = document.getElementById('box');
+            var movie = document.getElementById('movie');
+            var bar = document.getElementById('bar');
+            var startPoint = getElementLeft(box) +  (frameInfo.width - barLength) / 2;
+
+            box.addEventListener('mousemove', function(e) {
+                var clientX = e.clientX;
+                if (clientX < startPoint) return;
+                var p = (clientX - startPoint) / barLength;
+                if (p > 1) return;
+                var currentStep = Math.floor(p / frameInfo.step);
+                bar.style.width = (barLength * p) + 'px';
+                movie.style.backgroundPosition = getFramePosition(currentStep);
+            });
+
+        </script>
+    </body>
+</html>

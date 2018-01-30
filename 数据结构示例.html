@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+
+        //栈
+        function Stack() {
+            //各种属性和方法的声明,属性名和方法都是自定义的
+            var items = [1, 2, 3, 4];
+
+            this.push = function (element) {
+                items.push(element);
+            };//添加元素到栈顶
+
+            this.pop = function () {
+                return items.pop();
+            };//移出最后添加进去的元素
+
+            this.peek = function () {
+                return items[items.length - 1];
+            };//将返回栈顶的元素
+
+            this.isEmpty = function () {
+                return items.length == 0;
+            };//栈为空的话将返回true，否则就返回false
+
+            this.size = function () {
+                return items.length;
+            };//返回栈的长度
+
+            this.clear = function () {
+                items = [];
+            };//移除栈里所有的元素
+
+            this.print = function () {
+                console.log(items.toString());
+            };//把栈里的元素都输出到控制台
+        }
+
+        var stacks1 = new Stack();
+        var stacks2 = new Stack();
+
+        console.log(stacks1.push(5));
+        console.log(stacks2.push(6));
+
+
+        console.log(stacks1.peek());
+
+
+        //队列
+        function Queue() {
+            //放队列的属性跟方法
+            var itemsq = [];
+
+            this.enqueue = function (element) {
+                itemsq.push(element)
+            }
+            //往队列添加新元素；加到队列末尾
+
+            this.dequeue = function () {
+                return itemsq.shift()
+                //从队列移除项，也就是最先添加的最前的项
+            }
+
+            this.front = function () {
+                return itemsq[0];
+            };
+            //返回最前面的项
+
+            this.isEmpty = function () {
+                return itemsq.length == 0;
+            };//检测是否为空，空返回true，否则false
+
+            this.size = function () {
+                return itemsq.length;
+            }
+            //返回长度
+
+            this.print = function () {
+                console.log(itemsq.toString());
+            }//随时查看
+        }
+
+        var queue = new Queue();
+        console.log(queue.isEmpty());//此时输出true
+
+        queue.enqueue("John");
+        queue.enqueue("Lily");
+        queue.enqueue("May");
+
+        queue.print();
+        console.log(queue.size()); //输出3
+        console.log(queue.isEmpty()); //输出false
+        queue.dequeue();
+        queue.dequeue();
+        queue.print();
+
+        //优先级队列实例
+        function PriorityQueue() {
+            var items = [];
+            function QueueElement(element, Priorit) {//这个特殊元素包含了要添加到队列的元素（它可以是任意类型）及其在队列中的优先级。
+                this.element = element;
+                this.Priority = priority;
+            }
+            this.enqueue = function (priority) {
+                var queueElement = new QueueElement(element, priority);
+                if (this.isEmpty()) {
+                    items.push(queueElement);//如果队列为空，可以直接将元素入列
+                } else {
+                    var added = false;
+                    for (var i = 0; i < items.length; i++) {
+                        if (queueElement.priority, items[i].priority) {
+                            items.splice(i, 0, queueElement);//一旦找到priority值更大的元素，就插入新元素
+                            added = true;
+                            break;//并终止队列循环
+                        }
+                    }
+                    if (!added) {//如果要添加元素的priority值大于任何已有的元素，把它添加到队列的末尾
+                        items.push(queueElement);
+                    }
+                }
+            }
+        };//其他方法和默认的Queue实现相同
+
+        //链表
+        function LinkedList() {
+
+            var Node = function (element) {
+                // Node辅助类Node类表示要加入列表的项。它包含一个element属性，即要添加到列表的值，以及一个next属性，即指向列表中下一个节点项的指针。
+                this.element = element;
+                this.next = null;
+            };
+
+            var length = 0; // LinkedList类也有length属性
+            var head = null; // 存储第一个节点的引用
+            //1.向列表尾部添加一个新的项
+            this.append = function (element) {
+                var node = new Node(element),//把element作为值传入，创建Node项
+                    current; //指向列表中current项的变量
+
+                if (head === null) { //列表中第一个节点
+                    head = node;
+
+                } else {
+                    current = head; //列表中第一个节点的引用
+                    //循环列表，直到找到最后一项
+                    while (current.next) {
+                        current = current.next;
+                    }
+
+                    //找到最后一项，将其next赋为node，建立链接
+                    current.next = node; //让最后一个元素的next指针指向想要添加到列表的节点
+                }
+
+                length++; //更新列表的长度
+            };
+
+            this.insert = function (position, element) {
+                //检查越界值，越界返回false
+                if (position >= 0 && position <= length) {
+
+                    var node = new Node(element),
+                        current = head,
+                        previous,
+                        index = 0;
+
+                    if (position === 0) { //在第一个位置添加
+
+                        node.next = current; //把head的引用改为node，列表多了一个新元素
+                        head = node;
+
+                    } else {
+                        while (index++ < position) { //循环访问列表，找到目标位置
+                            previous = current;
+                            current = current.next;
+                            //跳出循环时，current是插入新元素的位置之后的元素的引用，previous是对之前的一个元素的引用。
+                        }
+                        node.next = current; //把新项（node）和当前项链接起来
+                        previous.next = node; //previous.next指向node
+                    }
+
+                    length++; //更新列表的长度
+
+                    return true;
+
+                } else {
+                    return false; //越界返回false，表示没有添加项到列表中
+                }
+            };
+
+
+            this.removeAt = function (position) {
+                //检查越界值
+                if (position > -1 && position < length) { // 验证该位置有效，不是有效的位置，就返回null
+                    var current = head, // current变量就是对列表中第一个元素的引用
+                        previous, // {3}
+                        index = 0; // {4}
+
+                    //移除第一项
+                    if (position === 0) { // 移除第一个元素（固定位置）
+                        head = current.next;//让head指向列表的第二个元素，也就是移除第一个元素
+                    } else {
+
+                        while (index++ < position) { //使用一个用于内部控制和递增的index变量
+                            previous = current;     //对所循环列表的当前元素的引用
+                            current = current.next; //对当前元素的前一个元素的引用
+                        }
+
+                        //将previous与current的下一项链接起来：跳过current，从而移除它
+                        previous.next = current.next; // 将previous.next和current.next链接起来=移除当前元素
+                    }
+
+                    length--; // {10}
+
+                    return current.element;
+
+                } else {
+                    return null; // {11}
+                }
+            };
+
+            this.remove = function (element) {
+                var index = this.indexOf(element);
+                return this.removeAt(index);
+            };
+
+            this.indexOf = function (element) {
+                var current = head, //index计算位置数
+                    index = -1;
+                while (current) { //循环访问元素
+                    if (element === current.element) {
+                        return index;
+                    }
+                    index++;
+                    current = current.next; //检查列表中下一个节点
+                }
+                return -1;
+            };
+
+            this.isEmpty = function () {
+                return length === 0;
+            };
+
+            this.size = function () {
+                return length;
+            };
+
+            this.toString = function () {
+                var current = head, //把current当作索引
+                    string = '';    //初始化用于拼接元素值的变量
+                while (current) {
+                    string += "," + current.element; //将元素内容拼接到字符串 
+                    current = current.next;   //继续迭代下一个元素
+                }
+                return string.slice(1);
+            };
+            this.print = function () { };
+        };
+
+        //链表命令部分
+        var list = new LinkedList();
+        list.append(15);
+        list.append(10);
+
+        //集合 Set类
+        function Set() {
+            var items = {};
+
+            this.has = function (value) {
+                return value in items;//return items.hasOwnProperty(value);
+            };//我们使用对象来存储集合的值，就可以用JavaScript的in操作符来验证给定的值是否是items对象的属性。
+
+            this.add = function (value) {
+                if (!tihs.has(value)) {
+                    itmes[value] = value;
+                    return true;
+                }
+                return false;
+            };
+
+            this.remove = function (value) {
+                if (this.has(value)) {
+                    delete items[value]; 从集合中移除value
+                    return true;
+                }
+                return false;
+            };
+
+            this.clear = function () {
+                items = {};
+            };
+
+            this.size = function () {
+                return Object.keys(items).length; //keys方法返回一个包含给定对象所有属性的数组
+            };
+
+            this.values = function () {
+                return Object.keys(items);
+            };
+
+            //并集
+            this.union = function (otherSet) {
+                var unionSet = new Set();
+                var values = this.values();
+                for (var i = 0; i < values.length; i++) {
+                    unionSet.add(values[i]);
+                }
+
+                values = otherSet.values();
+                for (var i = 0; i < values.length; i++) {
+                    unionSet.add(values[i]);
+                }
+
+                return unionSet;
+            };
+            //交集
+            this.intersection = function (otherSet) {
+                var intersectionSet = new Set();
+                var values = this.values();
+                for (var i = 0; i < values.length; i++) {//遍历Set实例所有的值
+                    if (otherSet.has(values[i])) {
+                        intersectionSet.add(values[i]);//添加到intersectionSet
+                    }
+                }
+
+                return intersectionSet;
+            };
+            //差集
+            this.difference = function (otherSet) {
+                var differenceSet = new set();
+                var values = this.values();
+                for (var i = 0; i < values.length; i++) {
+                    if (!otherSet.has(values[i])) {
+                        differenceSet.add(values[i]);
+                    }
+                }
+                return differenceSet;
+            };
+
+            //子集
+            this.subset = function (otherSet) {
+                if (this.size() > otherSet.size()) {
+                    return false;
+                } else {
+                    var values = this.values();
+                    for (var i = 0; i < values.length; i++) {
+                        if (!otherSet.has(values[i])) {
+                            return false;
+                        }
+                    }
+                } return true;
+            };
+
+        }
+
+        //Set类命令部分
+        var set = new Set();
+        set.add(1);
+        console.log(set.values()); //["1"]
+        console.log(set.has(1)); //true
+        console.log(set.size());//1
+        set.add(2);
+        console.log(set.values()); //["1", "2"]
+        console.log(set.has(2)); //true
+        console.log(set.size()); //2
+
+        //Set类 并集测试代码
+        var setA = new Set();
+        setA.add(1);
+        setA.add(2);
+        setA.add(3);
+        var setB = new Set();
+        setB.add(3);
+        setB.add(4);
+        setB.add(5);
+        setB.add(6);
+        var unionAB = setA.union(setB);
+        console.log(unionAB.values());
+
+        //Set类 差集测试代码
+        var setA = new Set();
+        setA.add(1);
+        setA.add(2);
+        setA.add(3);
+
+        var setB = new Set();
+        setB.add(2);
+        setB.add(3);
+        setB.add(4);
+
+        var differenceAB = setA.difference(setB);
+        console.log(differenceAB.values());
+
+        //Set类 子集测试代码
+        var setA = new Set();
+        setA.add(1);
+        setA.add(2);
+
+        var setB = new Set();
+        setB.add(1);
+        setB.add(2);
+        setB.add(3);
+
+        var setC = new Set();
+        setC.add(2);
+        setC.add(3);
+        setC.add(4);
+
+        console.log(setA.subset(setB));
+        console.log(setA.subset(setC));
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

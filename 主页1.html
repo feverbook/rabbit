@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Start 1 </title>
+<meta charset="utf-8">
+<script src="jquery-3.2.0.min.js"></script>
+<style>
+ div{
+  background-color:yellow;
+  border-radius: 15px 15px;
+  color: gray;
+}
+
+ li {
+  list-style-type:none;
+  height:20px;
+  width: 100px;
+  margin:5px;
+  padding:5px;
+  float:left;
+  background: linear-gradient(#F0F0F0, #6699CC);
+  border-radius: 5px 5px;
+}
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: pink;
+  min-width: 100px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+<script>
+
+</script>
+</head>
+<body>
+<div>
+  <li class="one">Home</li>
+</div>
+
+<div>
+
+  <li class="one">
+    <span class="dropdown">
+    Tutorials
+    <span class="dropdown-content">
+      <p>No.1</p>
+      <p>No.2</p>
+      <p>No.3</p>
+    </span>
+    </span>
+  </li>
+
+</div>
+
+<div>
+  <li class="one">Atricles</li>
+</div>
+
+<div>
+  <li class="one">Inspiration</li>
+</div>
+
+</body>
+
+</html>

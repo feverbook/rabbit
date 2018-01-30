@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.0.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var pic = new Array('rem', 'ram', 'aimi', 'bcis');//联想图片编号
+        console.log(pic);
+        pic[pic.length] = pic[0];
+        console.log(pic);
+        pic.shift();
+        console.log(pic);
+
+        function changepic(pict) {
+            pict[pict.length] = pict[0];
+            pict.shift();
+        }
+        //顺序切换函数，加上自动时间
+        var pict = new Array('a', 'b', 'c', 'd');
+        changepic(pict);
+        console.log(pict);
+
+    </script>
+</body>
+
+</html>

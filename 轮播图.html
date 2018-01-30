@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Start 3 </title>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.0.min.js"></script>
+    <style>
+        div {
+            position: relative;
+            background-color: #FF99CC;
+        }
+        
+        .head {
+            position: sticky;
+            top: 20px;
+            font-size: 50px;
+            text-align: center;
+            text-shadow: 5px 5px 5px #CD9B9B;
+        }
+        
+        .dip {
+            position: sticky;
+            top: 100px;
+            text-align: center;
+            text-shadow: 2px 2px 5px #FF0000;
+            background: linear-gradient(to right, rgba(255, 250, 250, 0.1), rgba(255, 110, 180, 0.8));
+            height: 50px;
+            font-size: 40px;
+        }
+        
+        .bed {
+            width: 700px;
+            height: 580px;
+            position: relative;
+            top: 50px;
+            border-radius: 5px 25px;
+            box-shadow: 10px 10px 5px #888888;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+        
+        .picture {
+            width: 700px;
+            height: 480px;
+            overflow: hidden;
+            position: absolute;
+            top: 20px;
+        }
+        
+        .anchor {
+            position: relative;
+            top: 540px;
+            left: 550px;
+            position: relative;
+            left: -2%;
+            float: right;
+        }
+        
+        button {
+            background-color: #FFFAFA;
+            border-radius: 2px;
+            text-align: center;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            float: left;
+        }
+        
+        #background {
+            z-index: 1;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="head"> 她的回忆 Or 他的性命 </div>
+
+    <div class="bed">
+        <span class="picture">    
+        <img id="background"/>
+
+        </span>
+        <div class="anchor">
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="4">4</button>
+        </div>
+    </div>
+
+    <div class="dip">从零开始的异世界生活!为了守护可爱的他们，能付出到什么地步呢？</div>
+
+    <script>
+        var n = document.getElementById("background");
+        var obj = [
+            {
+                id: '1',
+                img: '20160916221431_3zAUj.thumb.700_0'
+            },
+            {
+                id: '2',
+                img: 'timg'
+            },
+            {
+                id: '3',
+                img: '20160916221408_YVJm8.thumb.700_0'
+            },
+            {
+                id: '4',
+                img: '20160811191501_EXAwc.thumb.700_0'
+            }
+        ];
+
+        // var obj = {
+        //     0: "20160916221431_3zAUj.thumb.700_0",
+        //     1: "timg",
+        //     2: "20160916221408_YVJm8.thumb.700_0",
+        //     3: "20160811191501_EXAwc.thumb.700_0",
+        // };
+
+        /*   function change(this) {
+                 n.src = "../img/" + obj[this.id - 1] + ".jpeg";
+             };
+     
+             */
+        for (var i = 0; i < obj.length; i++) {
+            var el = document.getElementById(obj[i].id);//1234
+            el.addEventListener("click", function () {
+                n.src = "../img/" + obj[this.id - 1].img + ".jpeg";
+            });
+            var pic = obj[i].img;
+            $("img:first").after('<img src="../img/' + pic + '.jpeg"/>');
+        };
+
+        $("img").css({ "width": "700px", "height": "480px", "position": "absolute", "top": "20px", "display": "block" });
+
+
+        $("img:last").fadeOut(2000, "linear");
+        $("img:last").prev().css({ "display": "none" });
+        $("img:last").prev().fadeToggle(2000, "linear");
+
+        //          $("img:last").fadeOut(1000, "linear");z-index:-1;
+
+
+ $("img:last").fadeOut(2000, "linear");
+
+var zn = $("img:last").prev().css('z-index');
+$("img:last").prev().css({ "z-index": parseInt(zn)+1});//当作全部上一级+1；
+
+$("img:last").prev().css({ "display": "none" });//下一张渐出
+$("img:last").prev().fadeToggle(2000, "linear");
+
+$("img:last").css('z-index');
+var zn2 = $("img:last").prev().css('z-index');
+$("img:last").prev().css({ "z-index": parseInt(zn2)-4});//当作上一级全部+4；
+
+
+
+
+
+
+
+
+
+        //按钮
+        $(".anchor").append("<button>5</button>");
+        $(".anchor").append("<button>6</button>");
+    </script>
+</body>
+
+</html>

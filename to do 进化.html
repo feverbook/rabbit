@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Start 1 </title>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.0.min.js"></script>
+  <style>
+    li {
+      color: pink;
+    }
+
+    body {
+      font-size: 200%;
+    }
+
+    p {
+      font-size: 0.875em;
+    }
+  </style>
+
+</head>
+
+<body>
+  <p>toDo</p>
+  <input type="text" name="title" value="" id="box" placeholder="添加ToDo" />
+  <input type="button" name="name" value="添加" id="queren" onclick="mywrite()" />
+  <ul id="liebiao">未完成</ul>
+
+  <ul id="dy">已完成</ul>
+  <span></span>
+
+  <script>
+    var mybox = document.getElementById("box");
+    var myqueren = document.getElementById("queren");
+    var myliebiao = document.getElementById("liebiao");
+    var mydy = document.getElementById("dy");
+
+    function mywrite() {
+      if (mybox.value == "") {
+        alert("不能写空的~")
+      } else if (mybox.value.length > 10) {
+        alert("不能超过10个字啦~")
+      } else {
+        //  var result = createElementLi(mybox.value,myliebiao,"pink");
+        var text0 = mybox.value;
+        mybox.value = "";
+        $(createElementLi(text0, myliebiao, "pink")).click(function () {
+          $(this).remove();
+          //      var result2 = createElementLi(this.textContent,mydy,"gray");
+          $(createElementLi(this.textContent, mydy, "gray")).click(function () {
+            $(this).remove();
+          });
+        });
+      };
+    }
+
+    function createElementLi(text, parent, color) {
+      var li = document.createElement("li");
+      li.textContent = text;
+      parent.appendChild(li);
+      $(li).css({ "color": color, "font-size": "75%" });
+      return li;
+    }
+  </script>
+
+</body>
+
+</html>

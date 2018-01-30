@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Start 1 </title>
+<meta charset="utf-8">
+<script src="jquery-3.2.0.min.js"></script>
+<style>
+      li {
+        color: pink;
+      }
+      body {font-size:200%;}
+      p {font-size:0.875em;}
+
+</style>
+
+</head>
+
+<body>
+  <p>toDo</p>
+<input type="text" name="title" value="" id="box" placeholder="添加ToDo" required="required" autocomplete="off"/>
+<input type="button" name="name" value="添加" id="queren" onclick="mywrite()"/>
+<ul id="liebiao" ></ul>
+
+
+<script>
+var mybox = document.getElementById("box");
+var myqueren = document.getElementById("queren");
+var myliebiao = document.getElementById("liebiao");
+
+function mywrite(){
+  if (mybox.value==""){
+    alert("不能写空的~")
+  }else if (mybox.value.length>10) {
+    alert("不能超过10个字啦~")
+  }else {
+    var li = document.createElement("li");
+    li.textContent = mybox.value;
+    myliebiao.appendChild(li);
+    $("li").addClass("done");//有效
+    $("li.done").css("background-color","yellow");//在此添加完成效果
+    var doneyet =$("<span></span>").text(" 已完成");
+    $("li.done").append(doneyet);
+    mybox.value="";
+    $("button").click(function(){
+    $("li").remove();//移除
+      });
+    };
+  }
+
+
+     </script>
+
+</body>
+</html>

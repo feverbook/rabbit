@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Start 1 </title>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.0.min.js"></script>
+  <style>
+    ul {
+      float: left;
+      list-style-type: none;
+      padding: 5px;
+      border: 0px;
+    }
+
+    #n1 {
+      width: 80px;
+    }
+
+    .so {
+      position: relative;
+      display: inline-block;
+    }
+
+    .some {
+      display: none;
+      position: absolute;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <input type="text" name="title" value="" id="one" placeholder="红人ID" />
+
+  <input type="text" name="title" value="" id="two" placeholder="频道链接" />
+
+  <input type="text" name="title" value="" id="four" placeholder="联系方式" />
+
+  <input type="text" name="title" value="" id="five" class="so" placeholder="联系情况" />
+  <ul class="some">
+    <li>主动联系</li>
+    <li>被动联系</li>
+    <li>其他</li>
+  </ul>
+
+  <input type="text" name="title" value="" id="six" placeholder="联系日期" />
+
+  <input type="text" name="title" value="" id="three" placeholder="简介" />
+
+  <input type="text" name="title" value="" id="seven" class="so" placeholder="合作方式" />
+  <ul class="some">
+    <li>Freebie</li>
+    <li>推特</li>
+    <li>其他</li>
+  </ul>
+
+  <input type="text" name="title" value="" id="eight" placeholder="合作细节" />
+
+  <input type="text" name="title" value="" id="nine" class="so" placeholder="合作状态" />
+  <ul class="some">
+    <li>毫无动静</li>
+    <li>已出开箱</li>
+    <li>其他</li>
+  </ul>
+
+  <input type="text" name="title" value="" id="ten" placeholder="发货时间" />
+
+  <input type="text" name="title" value="" id="eleven" placeholder="测评放出时间" />
+
+  <input type="text" name="title" value="" id="twelve" placeholder="测评效果" />
+  <ul class="some">
+    <li>良好</li>
+    <li>无效果</li>
+    <li>其他</li>
+  </ul>
+
+  <input type="text" name="title" value="" id="thirteen" placeholder="测评其他" />
+
+  <input type="button" name="name" value="添加" id="queren" />
+
+  <div>
+    <ul id="n1">红人ID</ul>
+    <ul id="n2">频道链接</ul>
+    <ul id="n4">联系方式</ul>
+    <ul id="n5">联系情况</ul>
+    <ul id="n6">联系日期</ul>
+    <ul id="n3">简介</ul>
+    <ul id="n7">合作方式</ul>
+    <ul id="n8">合作细节</ul>
+    <ul id="n9">合作状态</ul>
+    <ul id="n10">发货时间</ul>
+    <ul id="n11">测评放出时间</ul>
+    <ul id="n12">测评效果</ul>
+    <ul id="n13">测评其他</ul>
+  </div>
+
+  <script>
+    var n1 = document.getElementById("n1");
+    var n2 = document.getElementById("n2");
+    var n3 = document.getElementById("n3");
+    var n4 = document.getElementById("n4");
+    var n5 = document.getElementById("n5");
+    var n6 = document.getElementById("n6");
+    var n7 = document.getElementById("n7");
+    var n8 = document.getElementById("n8");
+    var n9 = document.getElementById("n9");
+    var n10 = document.getElementById("n10");
+    var n11 = document.getElementById("n11");
+    var n12 = document.getElementById("n12");
+    var n13 = document.getElementById("n13");
+
+
+    var myqueren = document.getElementById("queren");
+
+
+    var one = document.getElementById("one");
+    var two = document.getElementById("two");
+    var three = document.getElementById("three");
+    var four = document.getElementById("four");
+    var five = document.getElementById("five");
+    var six = document.getElementById("six");
+    var seven = document.getElementById("seven");
+    var eight = document.getElementById("eight");
+    var nine = document.getElementById("nine");
+    var ten = document.getElementById("ten");
+    var eleven = document.getElementById("eleven");
+    var twelve = document.getElementById("twelve");
+    var thirteen = document.getElementById("thirteen");
+
+    //  document.getElementById("queren").addEventListener("click", function () {
+    //  console.log(one.value);
+    //    ntext(n1, box1);
+    //  box1.innerHTML = one.value;
+    //  });
+
+
+
+    $("#queren").click(function () {
+      $("#n1").append("<li>" + one.value + "</li>");
+      $("#n2").append("<li>" + two.value + "</li>");
+      $("#n3").append("<li>" + three.value + "</li>");
+      $("#n4").append("<li>" + four.value + "</li>");
+      $("#n5").append("<li>" + five.value + "</li>");
+      $("#n6").append("<li>" + six.value + "</li>");
+      $("#n7").append("<li>" + seven.value + "</li>");
+      $("#n8").append("<li>" + eight.value + "</li>");
+      $("#n9").append("<li>" + nine.value + "</li>");
+      $("#n10").append("<li>" + ten.value + "</li>");
+      $("#n11").append("<li>" + eleven.value + "</li>");
+      $("#n12").append("<li>" + twelve.value + "</li>");
+      $("#n13").append("<li>" + thirteen.value + "</li>");
+      $("li:even").css("color", "pink");
+      $("li:odd").css("color", "blue");
+
+      one.value = "";
+      two.value = ""; 
+      three.value = ""; 
+      four.value = ""; 
+      five.value = ""; 
+      six.value = ""; 
+      seven.value = ""; 
+      eight.value = ""; 
+      nine.value = ""; 
+      ten.value = ""; 
+      eleven.value = ""; 
+      twelve.value = "";
+      thirteen.value = "";//自动清除部分，待封装
+
+    });
+  </script>
+
+</body>
+
+</html>

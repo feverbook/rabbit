@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Start 2 </title>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.0.min.js"></script>
+  <style>
+    div {
+      position: relative;
+      background-color: #FF99CC;
+    }
+    
+    .left {
+      position: absolute;
+      top: 100px;
+      left: 20px;
+      border-style: ridge;
+      border-color: #CCCCFF;
+      width: 500px;
+      height: 750px;
+      overflow: hidden;
+    }
+    
+    .right {
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      border-style: ridge;
+      border-color: #3399FF;
+      width: 500px;
+      height: 750px;
+      overflow: hidden;
+    }
+    
+    .middle {
+      position: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: 35%;
+      height: 700px;
+      top: 35px;
+      text-align: center;
+      border-style: none;
+      background: linear-gradient(to right, rgba(255, 250, 250, 0.1), rgba(255, 110, 180, 0.8));
+    }
+    
+    .head {
+      position: sticky;
+      top: 20px;
+      font-size: 50px;
+      text-align: center;
+      text-shadow: 5px 5px 5px #CD9B9B;
+    }
+    
+    .dip {
+      position: sticky;
+      top: 100px;
+      text-align: center;
+      text-shadow: 2px 2px 5px #FF0000;
+      background: linear-gradient(to right, rgba(255, 250, 250, 0.1), rgba(255, 110, 180, 0.8));
+      height: 50px;
+      font-size: 40px;
+    }
+    
+    p {
+      font-weight: 500;
+      font-size: 25px;
+      text-align: left;
+    }
+    
+    .no {
+      display: none;
+    }
+  </style>
+  <script>
+    var role = document.getElementsByName("Rem");
+    var obj = {
+      rem: 'mywife',
+      emilia: 'myangel',
+    };
+
+    function tu(_self) {
+      _self.src = "../img/" + _self.name + ".jpg";
+      _self.title = obj[_self.name];
+      $("#RE0").css("display", "none");
+    }
+
+    function tu1(_self) {
+      tu(_self);
+      $("#rems").css("display", "block");
+      $("#emilias").css("display", "none");
+    }
+
+    function tu2(_self) {
+      tu(_self);
+      $("#rems").css("display", "none");
+      $("#emilias").css("display", "block");
+    }
+
+/*
+    var role = document.getElementsByName("Rem");
+    var obj = {
+      rem: 'mywife',
+      emilia: 'myangel',
+    };
+
+    function tu1(_self) {
+      _self.src = "../img/" + _self.name + ".jpg";
+      _self.title = obj[_self.name];
+      $("#RE0").css("display", "none");
+      $("#rems").css("display", "block");
+      $("#emilias").css("display", "none");
+    }
+
+    function tu2(_self) {
+      _self.src = "../img/" + _self.name + ".jpg";
+      _self.title = obj[_self.name];
+      $("#RE0").css("display", "none");
+      $("#rems").css("display", "none");
+      $("#emilias").css("display", "block");
+    }
+*/
+  </script>
+</head>
+
+<body>
+  <div class="head"> Kiss? Or Death? </div>
+
+  <div class="left">
+    <img src="../img/20160916221509_vrMSX.thumb.700_0_副本.jpg" class="role" onclick="tu1(this)" name="Rem" />
+  </div>
+
+  <div class="middle">
+    <p id="RE0">
+      &nbsp;&nbsp;在从便利商店回家的路上，突然被异世界召唤的少年菜月昴。 在异世界陷入迷茫的普通高中生菜月昴，邂逅了一位银发的美少女。 <br /> &nbsp;&nbsp;但想助她一臂之力的昴，却一次次地遭遇敌袭，背叛、暴力，甚至是死亡……
+      <br /> &nbsp;&nbsp;“死亡重置”——无力的少年拥有的唯一能力，能将死后时间倒转回一开始。 <br /> 使用了这般力量，便会失去过去的回忆，可为了守护最重要的人们，昴必须抗争到底。 “即使你忘却了我，我也不会遗忘你。”
+      <br /> &nbsp;&nbsp;为了守护最重要的人们，为了取回确实存在着又无可替代的时间， 在深爱自己的鬼族少女的帮助下，少年抗拒着绝望，勇敢地面对着残酷的命运。 <br />
+    </p>
+
+    <p class="no" id="rems">
+      蓝发蓝眼的短发少女，在罗兹瓦尔的宅邸工作的双胞胎女仆中的妹妹。<br /> 把负伤的昴抬进了宅邸，表面恭维内心瞧不起的毒舌担当，维持着宅邸的机能，工作上全能。
+      <br /> 眼神平静，除了敬爱的姐姐以外连商业式微笑都难以看见。幼时常被与姐姐比较，有些许自卑感。
+      <br /> 对姐姐拉姆有着绝对的信赖，是个十足的姐控，和姐姐一起在工作环境感到非常幸福。
+      <br /> 最近苦恼着新佣人的吵闹、胸部开始比姐姐大和衣服的尺寸不符。
+      <br /> 姐姐失去角后，雷姆承担主要工作，无论料理、打扫都比姐姐更加擅长，战斗能力也比姐姐强。
+      <br /> 种族鬼族，拥有鬼的能力，战斗时额头显露出角，可以吸收周围的魔力为己用。
+      <br /> 此外也会简易的水属性魔法及攻击型火魔法。
+      <br /> 一开始的时候对菜月昴的行动总是持有异议，不能理解。
+      <br /> 特长：料理、洗涤、扫除、裁缝
+      <br /> 兴趣：演剧鉴赏、诗文
+      <br />
+    </p>
+    <p class="no" id="emilias">
+      主要女主角，有著銀髮和紫紺色瞳孔的美少女。<br /> 第一章中在混混面前以火魔法冰槍術拯救了昴。
+      <br /> 為了避免昴與自己扯上關係，謊稱自己是嫉妒魔女—「莎緹拉」，第一章最終目中被昴救了一命，揭露本名為愛蜜莉雅。
+      <br /> 銀髮的外貌及半妖精[1]（Half elf）血統與『嫉妒』的魔女―莎緹拉的形象相同，故被露格尼卡的人民所懼怕。<br /> 愛照顧人的老好人，但本人卻不肯坦率地承認這點，有些許的天然呆。
+      <br /> 精神比表面上呈現的脆弱，和被修改的幼時記憶有關。
+      <br /> 與家人沒什麼區別的貓精靈帕克搭擋，僅在帕克的面前會露出撒嬌的表情。
+      <br /> 露格尼卡王國第42代王位候選人，以羅茲瓦爾邊境伯做為後盾參加王選。
+      <br /> 男主角菜月昴不斷使用「死亡回歸」所想要拯救的對象之一。
+      <br /> 經常使用『オタンコナス』『おったまげた』等，現代日語中不常使用的老氣詞彙，常因此被昴吐槽。
+      <br /> 特長：料理（自稱）、繪畫（自稱）、歌唱、 速讀（一旦沉浸於故事中就不讀了）、字跡漂亮、堆石子（消磨時間）
+      <br /> 興趣：梳理帕克的毛髮，學習
+      <br />
+    </p>
+  </div>
+
+  <div class="right">
+    <img src="../img/20160811192311_Jn8jA.thumb.700_0_副本.jpg" class="role" onclick="tu2(this)" name="Emilia" />
+  </div>
+
+  <div class="dip">从零开始的异世界生活!&nbsp;所爱与被爱,最终究竟?</div>
+
+
+</body>
+
+</html>
